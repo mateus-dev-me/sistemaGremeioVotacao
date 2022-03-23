@@ -6,11 +6,8 @@ cursor = connectDb.cursor()
 
 cursor.execute("""
 CREATE TABLE alunos (
-        matricula VARCHAR,
-        senha VARCHAR,
-        nome VARCHAR,
-        serie    INTERGER,
-        curso VARCHAR
+    matricula VARCHAR,
+    senha VARCHAR,
 );
 """)
 
