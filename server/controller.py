@@ -94,7 +94,7 @@ class ControllerVotacao:
             chapas.append({'votos': len(votos), 'numero': chapa.numero, 'presidente': presidente[0].nome, 'vice': vice[0].nome})
         return chapas
 
+
 a = ControllerAlunos()
 c = ControllerChapas()
 v = ControllerVotacao()
-
