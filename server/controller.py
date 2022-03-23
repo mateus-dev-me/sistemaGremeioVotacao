@@ -97,3 +97,4 @@ class ControllerVotacao:
 a = ControllerAlunos()
 c = ControllerChapas()
 v = ControllerVotacao()
+
