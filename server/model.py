@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-BANCO = 'db/gremio.db'
+BANCO = '../db/gremio.db'
 
 CONN = f"sqlite:///{BANCO}"
 
@@ -17,6 +17,12 @@ class Alunos(Base):
     matricula = Column(String(50))
     senha = Column(String(50))
     nome = Column(String(50))
+
+class AlunosVot(Base):
+    __tablename__ = 'alunosvot'
+    id = Column(Integer, primary_key=True)
+    ID_aluno = Column(Integer, ForeignKey('alunos.id'))
+
 
 class Chapas(Base):
     __tablename__ = 'chapas'
