@@ -1,9 +1,9 @@
-from model import *
 from session import retornaSession
 import hashlib
+from model import *
 class ControllerAlunos:
+    #Cadastro
     @classmethod
-    # Cadastro
     def cadastrar(cls, matricula, senha, nome):
         session =  retornaSession()
         try:
@@ -14,14 +14,21 @@ class ControllerAlunos:
             return 1
         except:
             return 2
+    '''
+    Login
+
+    Return:
+    Aluno - Matrícula e senha corretos.
+    2 - Matrícula e/ou senha incorretos.
+
+    '''
     @classmethod
-    # Login
     def login(cls, matricula, senha):
         senha = hashlib.sha256(senha.encode()).hexdigest()
         session =  retornaSession()
         existeMatricula = session.query(Alunos).filter(Alunos.matricula == matricula).all()
         if len(existeMatricula) == 1 and existeMatricula[0].senha == senha:
-            return existeMatricula[0]
+            return {'ID_aluno': existeMatricula[0].id}
         else:
             return 2
     @classmethod
@@ -31,8 +38,8 @@ class ControllerAlunos:
         alunos = session.query(Alunos).all()
         return alunos
 class ControllerChapas:
-    @classmethod
     # Cadastro
+    @classmethod
     def cadastrar(cls, numero, ID_presidente, ID_vice):
         session =  retornaSession()
         existePesidente = session.query(Alunos).filter(Alunos.id == ID_presidente).all()
@@ -47,8 +54,8 @@ class ControllerChapas:
                 return 2
         else:
             print('ID não encontrado(s).')
-    @classmethod
     # Ler
+    @classmethod
     def ler(cls):
         session =  retornaSession()
         chapasBD = session.query(Chapas).all()
@@ -59,14 +66,24 @@ class ControllerChapas:
             chapas.append({'numero': chapa.numero, 'presidente': presidente[0].nome, 'vice': vice[0].nome})
         return chapas
 class ControllerVotacao:
+    '''
+    Votação
+
+    Return:
+    Chapa - voto confirmado.
+    2 - Erro interno do sistema.
+    3 - Chapa ou aluno inexistente.
+    4 - Aluno já votou.
+
+    '''
     @classmethod
-    # Cadastro
     def cadastrar(cls, ID_chapa, ID_aluno):
         session =  retornaSession()
         existeChapa = session.query(Chapas).filter(Chapas.id == ID_chapa).all()
         existeVoto = session.query(AlunosVot).filter(AlunosVot.ID_aluno == ID_aluno).all()
+        existeAluno = session.query(Alunos).filter(Alunos.id == ID_aluno).all()
         if len(existeVoto) == 0:
-            if len(existeChapa) > 0:
+            if len(existeChapa) > 0 and len(existeAluno) == 1:
                 try:
                     newVot = Votacao(ID_chapa = ID_chapa)
                     session.add(newVot)
@@ -74,15 +91,15 @@ class ControllerVotacao:
                     newAlunoVot = AlunosVot(ID_aluno = ID_aluno)
                     session.add(newAlunoVot)
                     session.commit()
-                    return existeChapa
+                    return {'chapa': existeChapa[0].id}
                 except:
                     return 2
             else:
                 return 3
         else:
             return 4
-    @classmethod
     # Ler
+    @classmethod
     def ler(cls):
         session =  retornaSession()
         chapasBD = session.query(Chapas).all()
@@ -93,8 +110,3 @@ class ControllerVotacao:
             vice = session.query(Alunos).filter(Alunos.id == chapa.ID_vice).all()
             chapas.append({'votos': len(votos), 'numero': chapa.numero, 'presidente': presidente[0].nome, 'vice': vice[0].nome})
         return chapas
-
-
-a = ControllerAlunos()
-c = ControllerChapas()
-v = ControllerVotacao()
