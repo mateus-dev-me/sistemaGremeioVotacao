@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votação | Vot Grêmio</title>
+    <meta name="description" content="Votação - Escolha um candidato que mereça o seu voto">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preload" href="../css/main.css" as="style">
+</head>
+
+<body>
+    <section class="alert-page">
+        <div class="content-alert flx-20">
+            <div class="circle-alert1">
+                <div class="cirlce-alert2">
+                    <span class="spam-large-icon">!</span>
+                </div>
+            </div>
+            <span class="spam-alert-text">Seu voto ja foi Computado</span>
+            <button class="btn-1 btn-global">Refazer Login</button>
+            <button class="btn-2 close-btn btn-global"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.333344C5.54837 0.333344 0.333374 5.54834 0.333374 12C0.333374 18.4517 5.54837 23.6667 12 23.6667C18.4517 23.6667 23.6667 18.4517 23.6667 12C23.6667 5.54834 18.4517 0.333344 12 0.333344ZM12 21.3333C6.85504 21.3333 2.66671 17.145 2.66671 12C2.66671 6.85501 6.85504 2.66668 12 2.66668C17.145 2.66668 21.3334 6.85501 21.3334 12C21.3334 17.145 17.145 21.3333 12 21.3333ZM12 10.355L16.1884 6.16668L17.8334 7.81168L13.645 12L17.8334 16.1883L16.1884 17.8333L12 13.645L7.81171 17.8333L6.16671 16.1883L10.355 12L6.16671 7.81168L7.81171 6.16668L12 10.355Z" fill="#0C673B" />
+                </svg></button>
+        </div>
+    </section>
+    <header class="bk-g-10">
+        <div class="header-vot container">
+            <img class="logo-votacao" src="../img/logo.svg" height="147" width="129" alt="">
+            <a class="dp-none600" href="../login.html"><button class="btn-global btn-2">Voltar para login</button></a>
+        </div>
+    </header>
+    <main class="vote-page">
+        <div class="container gb-padding">
+            <div class="page-vot">
+                <h1 translate="no" class="font-b">Votação</h1>
+                <div class="grid-vot ">
+                    <div class="container-candidatado">
+                        <div class="flx-20">
+                            <div>
+                                <img src="../img/canditado81.png" alt="">
+                            </div>
+                            <h2 class="font-b2"> Chapa 1</h2>
+                            <div class="name-vot">
+                                <div class="name-vot-ctn-name">
+                                    <h3 class="font-p4">Vitória Melo</h3>
+                                    <span class="indenficador">lider</span>
+                                </div>
+                                <div class="name-vot-ctn-name">
+                                    <h3 class="font-p4">Elthon Mororow</h3>
+                                    <span class="indenficador">Vice</span>
+                                </div>
+                            </div>
+                            <button id="cg81" class="btn-global btn-1 btn-icon"><img class="icon-btn" src="../img/icons/valid.svg" alt=""> Votar</button>
+                        </div>
+                    </div>
+                    <div class="container-candidatado">
+                        <div class="flx-20">
+                            <div>
+                                <img src="../img/canditado95.png" alt="">
+                            </div>
+                            <h2 class="font-b2"> Chapa 2</h2>
+                            <div class="name-vot">
+                                <div class="name-vot-ctn-name">
+                                    <h3 class="font-p4">Shayane</h3>
+                                    <span class="indenficador">lider</span>
+                                </div>
+                                <div class="name-vot-ctn-name">
+                                    <h3 class="font-p4">Juliana</h3>
+                                    <span class="indenficador">Vice</span>
+                                </div>
+                            </div>
+                            <button id="cg95" class="btn-global btn-1 btn-icon"><img class="icon-btn" src="../img/icons/valid.svg" alt=""> Votar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="apurate">
+        <div class="container gb-padding">
+            <div class="page-vot">
+                <h1 class="font-b">Apuração</h1>
+                <div class="votos indenficador">
+                    <span id="vot">30</span>/<span id="no-vot">40</span>
+                </div>
+                <div class="chartjs-size-monitor">
+                    <div class="chartjs-size-monitor-expand">
+                        <div class=""></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink">
+                        <div class=""></div>
+                    </div>
+                </div>
+                <div style="max-width: 860px;">
+                    <canvas id="myChart" style="display: block; height: 429px; width: 858px;" width="1716" height="858" class="chartjs-render-monitor"></canvas>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer class="bk-gren-ft">
+        <div class="footer">
+            <div class="copyright font-p3">
+                <spn class="font-p3">Todos os dieitos reservados -2022 Infoeep</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="../js/vot.js"></script>
+
+</body>
+
+</html>
