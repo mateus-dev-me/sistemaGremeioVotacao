@@ -1,0 +1,241 @@
+@import url(./tipografia.css);
+@import url(./login.css);
+@import url(./votacao.css);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --g-0: #edfffb;
+    --g-1: #d7fcec;
+    --g-2: #acf8d7;
+    --g-3: #79e8b2;
+    --g-4: #5dd69c;
+    --g-5: #50c987;
+    --g-6: #45b97a;
+    --g-7: #35ab6c;
+    --g-8: #299f5f;
+    --g-9: #1f8e52;
+    --g-10: #167b45;
+    --g-11: #0c673b;
+    --g-12: #07522a;
+    --g-13: #034215;
+    /* amarelo*/
+    --yl-1: #fffaec;
+    --yl-2: #fcf4d7;
+    --yl-3: #524207;
+    /*red*/
+    --red-1: #ce2519;
+    /* cinza */
+    --cz-1: #f7f7f7;
+    --cz-2: #ededed;
+    --cz-3: #dedede;
+    --cz-4: #ccc;
+    --cz-5: #b8b8b8;
+    --cz-6: #b2b2b2;
+    --cz-7: #9c9c9c;
+    --cz-8: #717171;
+    --cz-9: #595959;
+    --cz-10: #404040;
+    --cz-11: #2e2e2e;
+    --cz-12: #1a1a1a;
+    --cz-13: #0e0e0e;
+    --cl-fff: #fff;
+    /* elements*/
+    --trs: 0.3s;
+}
+
+
+/*backgrouns class */
+
+.bk-g-10 {
+    background-color: var(--g-10);
+}
+
+.bk-ff {
+    background-color: var(--cl-fff);
+}
+
+
+/*fontes*/
+
+@font-face {
+    font-family: Poppins;
+    src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}
+
+
+/*reset tag*/
+
+body {
+    font-family: "Poppins";
+    font-weight: 400;
+    color: var(--cz-7);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    line-height: 1.4;
+}
+
+a,
+button {
+    border: none;
+    cursor: pointer;
+    background: 0 0;
+    text-decoration: none;
+}
+
+input {
+    background: none;
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+img[src$=".jpg"] {
+    border-radius: 8px;
+}
+
+h1 {
+    color: var(--g-13);
+}
+
+h2 {
+    color: var(--cz-9);
+}
+
+.style-position {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+    max-width: 78px;
+}
+
+footer .footer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo-login {
+    max-width: 128px;
+    width: calc(80px + (8 / 200) * 100vw);
+}
+
+.logo-votacao {
+    max-width: 200px;
+    width: calc(160px + (8 / 200) * 100vw);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+}
+
+.gb-padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+.btn-global {
+    padding: 8px 24px;
+    font-size: 16px;
+    line-height: 21px;
+    font-family: "Poppins-SemiBold";
+    white-space: nowrap;
+    border-radius: 8px;
+    width: fit-content;
+    transition: ease-in var(--trs);
+}
+
+.btn-1 {
+    background-color: var(--g-7);
+    color: var(--cl-fff);
+    border: 2px solid;
+    border-color: transparent;
+}
+
+.btn-1:hover {
+    border-color: var(--g-1);
+}
+
+.btn-2 {
+    background-color: var(--g-0);
+    color: var(--g-10);
+    border: 2px solid;
+    border-color: transparent;
+    transition: ease-out var(--trs);
+}
+
+.btn-2:hover {
+    background-color: transparent;
+    border-color: var(--g-2);
+    color: var(--g-2);
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.btn-icon .icon-btn {
+    max-height: 12px;
+    width: fit-content;
+}
+
+.form-back-img {
+    max-width: 560px;
+    position: absolute;
+}
+
+@media (max-width: 600px) {
+    .gb-padding {
+        padding-bottom: 80px;
+        padding-top: 80px;
+    }
+    .form-back-img,
+    .style-position {
+        display: none;
+    }
+}
