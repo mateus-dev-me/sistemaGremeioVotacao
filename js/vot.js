@@ -1,3 +1,7 @@
+let response = fetch('http://localhost:8000/votos', {method: 'get'})
+
+
+
 let votosCp = 4;
 let totalVt = 40;
 let ctx = document.getElementById("myChart");
