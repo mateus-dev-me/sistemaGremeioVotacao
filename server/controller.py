@@ -30,7 +30,7 @@ class ControllerAlunos:
         if len(existeMatricula) == 1 and existeMatricula[0].senha == senha:
             return {'ID_aluno': existeMatricula[0].id}
         else:
-            return 2
+            return {'status': 2}
     @classmethod
     # Ler
     def ler(cls):
